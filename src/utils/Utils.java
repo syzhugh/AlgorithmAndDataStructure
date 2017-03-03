@@ -2,11 +2,6 @@ package utils;
 
 public class Utils {
 
-	public static void main(String[] args) {
-		String showArrStr = showArrStr(getIntegerArr(20));
-		System.out.println(showArrStr);
-	}
-
 	public static int[] getIntegerArr(int length) {
 		int[] arr = new int[length];
 		for (int i = 0; i < arr.length; i++) {
@@ -25,7 +20,13 @@ public class Utils {
 		return arr;
 	}
 
-	public static String showArrStr(int[] temp) {
+	public static void change(int[] arr, int i, int j) {
+		arr[i] = arr[i] ^ arr[j];
+		arr[j] = arr[j] ^ arr[i];
+		arr[i] = arr[i] ^ arr[j];
+	}
+
+	public static void showArrStr(int[] temp) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < temp.length; i++) {
 			if (i % 20 == 0 && i > 0) {
@@ -33,6 +34,6 @@ public class Utils {
 			}
 			builder.append(temp[i] + " ");
 		}
-		return builder.toString();
+		System.out.println(builder.toString());
 	}
 }

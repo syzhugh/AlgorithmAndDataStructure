@@ -1,13 +1,27 @@
 package algorithm.sort;
 
+import utils.Utils;
+
 public class StraightInsert {
 
 	/**
-	 * @param args
+	 * 直接插入排序
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int[] integerArr = Utils.getIntegerArr(20);
+		Utils.showArrStr(integerArr);
+		insertSort(integerArr);
+		Utils.showArrStr(integerArr);
 	}
 
+	private static void insertSort(int[] arr) {
+		for (int i = 1; i < arr.length; i++) {
+			int j;
+			int temp;
+			for (j = i, temp = arr[i]; j > 0 && arr[j - 1] > temp; j--) {
+				arr[j] = arr[j - 1];
+			}
+			arr[j] = temp;
+		}
+	}
 }
