@@ -16,6 +16,9 @@ public class StraightInsert {
 
 	private static void insertSort(int[] arr) {
 		for (int i = 1; i < arr.length; i++) {
+			if (arr[i] >= arr[i - 1]) {
+				continue;
+			}
 			int j;
 			int temp;
 			for (j = i, temp = arr[i]; j > 0 && arr[j - 1] > temp; j--) {
